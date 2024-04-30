@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>show form data</title>
+</head>
+<body>
+    <main>
+        <div>User data list</div>
+        <ul id="ul">
+
+        </ul>
+    </main>
+</body>
+<style>
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    ul{
+        padding: 10px;
+        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        border: 2px;
+        border-style: solid;
+        border-radius: 0.375rem; 
+        list-style: none;
+
+    }
+
+    .li {
+        padding: 3px;
+        border-radius: 0.375rem;
+    }
+    .li:hover {
+        background-color: rgb(159, 246, 246);
+        transition-duration: 200ms;
+    }
+</style>
+
+<script>
+    const formData = [{
+        name: "test",
+        email: "sample@gmain.com"
+    },
+    {
+        name: "test",
+        email: "sample@gmain.com"
+    },
+    {
+        name: "test",
+        email: "sample@gmain.com"
+    }]
+    const list = document.getElementById("ul")
+    
+    formData.forEach((data,index) => {
+        const ele = list.appendChild(document.createElement("li"))
+        ele.innerHTML = `
+        <div>name: ${data.name}</div>
+        <div>email: ${data.email}</div>
+        `
+        ele.classList.add("li")
+    });
+</script>
+
+</html>

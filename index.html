@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Form Data Receiver</title>
+<title>form data</title>
 </head>
 <body>
     <main>
@@ -14,10 +14,15 @@
             <input type="email" id="email" name="email"><br><br>
             <button type="submit">Submit</button>
         </form>
+
+        <ul>
+
+        </ul>
     </main>
 <style>
     main {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 100vh;
@@ -33,6 +38,7 @@
 </style>
 
 <script>
+    const formDataList = []
 document.getElementById("form").addEventListener("submit", (e) => {
   e.preventDefault(); 
   
@@ -40,9 +46,24 @@ document.getElementById("form").addEventListener("submit", (e) => {
   var name = formData.get("name");
   var email = formData.get("email");
   
+  formDataList.push({
+    name: name,
+    email: email
+  })
+
+  const ele = document.querySelector("ul").appendChild(document.createElement("li"))
+  ele.innerHTML = `
+  <p>INSERT INTO formData (name, email) VALUES(${formDataList.name},${formDataList.email});
+  `
+
+
   console.log("name:", name);
   console.log("email:", email);
 });
+
+
+
+
 </script>
 
 </body>
