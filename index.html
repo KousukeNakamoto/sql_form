@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Data Receiver</title>
+</head>
+<body>
+    <main>
+        <form id="form">
+            <label for="name">name</label><br>
+            <input type="text" id="name" name="name"><br>
+            <label for="email">email</label><br>
+            <input type="email" id="email" name="email"><br><br>
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+<style>
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    form {
+        padding: 10px;
+        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        border: 2px;
+        border-style: solid;
+        border-radius: 0.375rem; /* 6px */
+    }
+</style>
+
+<script>
+document.getElementById("form").addEventListener("submit", (e) => {
+  e.preventDefault(); 
+  
+  var formData = new FormData(e.target);
+  var name = formData.get("name");
+  var email = formData.get("email");
+  
+  console.log("name:", name);
+  console.log("email:", email);
+});
+</script>
+
+</body>
+</html>
